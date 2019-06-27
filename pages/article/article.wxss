@@ -1,0 +1,67 @@
+/* pages/article/article.wxss */
+
+.articleItem{
+   margin: 8px;
+   padding: 10px 10px 0px 10px;
+   border-bottom: 1px solid #dcdcdc;
+}
+.title{
+  font-size: 18px;
+  font-weight: blod;
+  /* background-color: green; */
+}
+.description{
+  font-size: 13px;
+  color: #999;
+  line-height: 20px;
+  padding: 5px 0 0 0;
+  /* background-color: red; */
+}
+.cover{
+  /* background-color: yellow; */
+  height: 150px;
+  padding: 2px 0;
+}
+.cover image{
+  /* height: 150px; */
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.component{
+  color: rgba(1, 1, 1, .6);
+  overflow: hidden;
+  /* background: red; */
+  width: 100%;
+}
+
+.split{
+  border-bottom: 2px solid rgb(218, 214, 214);
+}
+
+.iconfont{
+  font-size: 14px;
+  margin: 4px 10px 0 0;
+  float: left;
+  color: #999;
+}
+.date{
+  font-size: 12px;
+  float: right;
+  color: #999;
+  line-height: 30px;
+  margin-top: 8px
+}
+.icon-xingxing_selected{
+  color: #FFC1C1;
+}
+.likeNum{
+  font-size: 11px;
+ 
+}
+.icon-xihuan1{
+  color: #FF4040
+}
+
+
+

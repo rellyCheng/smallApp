@@ -1,0 +1,4 @@
+var sub = function (val) {
+  return val.substring(0, 80)
+}
+module.exports.sub = sub;

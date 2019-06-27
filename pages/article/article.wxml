@@ -1,0 +1,22 @@
+<!--pages/article/article.wxml-->
+<wxs src="./article.wxs" module="util" />
+<view class="section" >
+  <scroll-view scroll-y style="height: 50%;" bindscrolltoupper="upper" bindscrolltolower="lower"        bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <block wx:for="{{articleList}}" wx:key="{{index}}">
+    <view  class="articleItem">
+        <view class="scroll-view-item title">  {{item.title}}</view>
+        <view class="scroll-view-item description">  {{util.sub(item.description)}}...</view>
+        <view class="scroll-view-item cover">
+          <image src="{{'http://file.1024sir.com/'+item.cover}}"/>
+        </view>
+        <view class="component" >
+            <icon bindtap="handleStar" id="{{item.articleId}}" data-item="{{item}}" class="iconfont icon-shoucang {{item.isStar?'icon-xingxing_selected':''}}"/>
+            <icon class="iconfont icon-like-1 {{item.likeNum>0?'icon-xihuan1':''}}" >
+              <text class="likeNum">{{item.likeNum}}</text>
+            </icon>
+            <view class="date"><text>{{item.updateTime}}</text></view>
+        </view>
+    </view>
+    </block>
+  </scroll-view>
+</view>
