@@ -30,33 +30,62 @@ Page({
     let item = e.currentTarget.dataset.item;
     let url = "/api/article/starArticle?articleId=" + item.articleId;
     wxRequest.postBody(url, {}).then((result) => {
-      console.log(result);
-      this.getArticle();
+      let articleList = this.data.articleList;
+      //修改文章数据源 
+      articleList.map((item1,index)=>{
+        if(item1.articleId==item.articleId){
+          item1.isStar = !item1.isStar;
+        }
+        return item1;
+      })
+      //重新渲染页面
+      this.setData({
+        articleList:articleList
+      })
+      // this.getArticle(); //前端修改了数据  就无须重新获取数据了 减轻服务器压力
+    })
+  },
+  handleLike:function(e){
+    let item = e.currentTarget.dataset.item;
+    let url = "/api/article/likeArticle?articleId=" + item.articleId;
+    wxRequest.postBody(url, {}).then((result) => {
+      let articleList = this.data.articleList;
+      //修改文章数据源 
+      articleList.map((item1, index) => {
+        if (item1.articleId == item.articleId) {
+          item1.likeNum++;
+        }
+        return item1;
+      })
+      //重新渲染页面
+      this.setData({
+        articleList: articleList
+      })
+      // this.getArticle(); //前端修改了数据  就无须重新获取数据了 减轻服务器压力
+    })
+  },
+  upper: function (e) {
+    console.log(e)
+  },
+  lower: function (e) {
+    console.log(e)
+  },
+  scroll: function (e) {
+    console.log(e)
+  },
+  tap: function (e) {
+    for (var i = 0; i < order.length; ++i) {
+      if (order[i] === this.data.toView) {
+        this.setData({
+          toView: order[i + 1]
+        })
+        break
+      }
+    }
+  },
+  tapMove: function (e) {
+    this.setData({
+      scrollTop: this.data.scrollTop + 10
     })
   }
-
-//  upper: function (e) {
-//     console.log(e)
-//   },
-//   lower: function (e) {
-//     console.log(e)
-//   },
-//   scroll: function (e) {
-//     console.log(e)
-//   },
-//   tap: function (e) {
-//     for (var i = 0; i < order.length; ++i) {
-//       if (order[i] === this.data.toView) {
-//         this.setData({
-//           toView: order[i + 1]
-//         })
-//         break
-//       }
-//     }
-//   },
-//   tapMove: function (e) {
-//     this.setData({
-//       scrollTop: this.data.scrollTop + 10
-//     })
-//   }
 })

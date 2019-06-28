@@ -10,8 +10,8 @@
           <image src="{{'http://file.1024sir.com/'+item.cover}}"/>
         </view>
         <view class="component" >
-            <icon bindtap="handleStar" id="{{item.articleId}}" data-item="{{item}}" class="iconfont icon-shoucang {{item.isStar?'icon-xingxing_selected':''}}"/>
-            <icon class="iconfont icon-like-1 {{item.likeNum>0?'icon-xihuan1':''}}" >
+            <icon bindtap="handleStar"  data-item="{{item}}" class="iconfont icon-shoucang {{item.isStar?'icon-xingxing_selected':''}}"/>
+            <icon bindtap="handleLike" data-item="{{item}}" class="iconfont icon-like-1 {{item.likeNum>0?'icon-xihuan1':''}}" >
               <text class="likeNum">{{item.likeNum}}</text>
             </icon>
             <view class="date"><text>{{item.updateTime}}</text></view>
