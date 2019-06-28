@@ -1,6 +1,16 @@
 <!--pages/article/article.wxml-->
 <wxs src="./article.wxs" module="util" />
 <view class="section" >
+<view class='page_row' >  
+      <view class="search">  
+        <view class="df search_arr">  
+          <icon class="searchcion" type='search'></icon>  
+          <input bindinput="handleSearchValChange" placeholder="请输入关键字"/>  
+        </view>  
+      </view>  
+      <view bindtap="handleSearch" class='sousuo'>搜索</view>  
+</view>
+
   <scroll-view scroll-y style="height: 50%;" bindscrolltoupper="upper" bindscrolltolower="lower"        bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <block wx:for="{{articleList}}" wx:key="{{index}}">
     <view  class="articleItem">

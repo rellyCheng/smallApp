@@ -1,13 +1,12 @@
 // pages/article/article.js
 const wxRequest = require('./../../utils/wxRequest.js');
-var order = ['red', 'yellow', 'blue', 'green', 'red']
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articleList:[]
+    articleList: wx.getStorageSync('articleList')
   },
 
   /**
@@ -21,6 +20,7 @@ Page({
     let data = {};
     wxRequest.postBody(url, data).then((result) => {
       console.log(result.data.pageData);
+      wx.setStorageSync('articleList', result.data.pageData);
       this.setData({
         articleList:result.data.pageData
       })
@@ -63,6 +63,26 @@ Page({
       })
       // this.getArticle(); //前端修改了数据  就无须重新获取数据了 减轻服务器压力
     })
+  },
+  handleSearchValChange:function(e){
+    this.setData({
+      searchVal:e.detail.value
+    })
+  },
+  handleSearch:function(e){
+    const searchVal = this.data.searchVal;
+    console.log();
+    //搜索文章
+    let url = "/publicApi/article/getArticleByTitle";
+    let data = { title: searchVal};
+    wxRequest.getRequest(url, data).then((result) => {
+      console.log(result);
+      wx.setStorageSync('articleList', result.data.pageData);
+      this.setData({
+        articleList: result.data.pageData
+      })
+    })
+
   },
   upper: function (e) {
     console.log(e)
