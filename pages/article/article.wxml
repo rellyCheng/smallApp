@@ -11,7 +11,7 @@
       <view bindtap="handleSearch" class='sousuo'>搜索</view>  
 </view>
 
-  <scroll-view scroll-y style="height: 50%;" bindscrolltoupper="upper" bindscrolltolower="lower"        bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <scroll-view scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
     <block wx:for="{{articleList}}" wx:key="{{index}}">
     <view  class="articleItem">
         <view class="scroll-view-item title">  {{item.title}}</view>

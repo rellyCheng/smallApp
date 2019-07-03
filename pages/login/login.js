@@ -14,7 +14,7 @@ Page({
   onShow: function () {
   },
   onLoad: function (options){
-    console.log(wx.getStorageSync("userDetail"));
+    console.log(wx.getStorageSync("userDetail")=="");
     if(wx.getStorageSync("userDetail")!=''){
       wx.redirectTo({
         url: '../article/article'

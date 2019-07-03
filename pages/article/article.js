@@ -89,6 +89,7 @@ Page({
   },
   lower: function (e) {
     console.log(e)
+    console.log("页面滑到底部")
   },
   scroll: function (e) {
     console.log(e)
@@ -107,5 +108,5 @@ Page({
     this.setData({
       scrollTop: this.data.scrollTop + 10
     })
-  }
+  },
 })

@@ -1,20 +1,33 @@
 var Promise = require('../plugins/es6-promise.js')
 
-let api_IP = "http://192.168.1.160:8426";
+let api_IP = "https://api.1024sir.com";
 function wxPromisify(fn) {
   return function (obj = {}) {
     return new Promise((resolve, reject) => {
       obj.success = function (res) {
         console.log(res)
-        //成功
-        if (res.data.state == 1 || res.data.state == "OK"){
-          resolve(res.data);
-        }else{
+        if(res.statusCode==401){
           wx.showToast({
-            title: res.data.message,
+            title: "登录失效",
             duration: 1500,
             mask: true
           });
+          wx.removeStorageSync('userDetail');
+          wx.redirectTo({
+            url: '../login/login'
+          })
+        }
+        if (res.statusCode == 200){
+          //成功
+          if (res.data.state == 1 || res.data.state == "OK") {
+            resolve(res.data);
+          } else {
+            wx.showToast({
+              title: res.data.message,
+              duration: 1500,
+              mask: true
+            });
+          }
         }
       }
       obj.fail = function (res) {
