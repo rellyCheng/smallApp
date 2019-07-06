@@ -4,7 +4,9 @@
     "pages/article/article",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/vote/vote"
+    "pages/vote/vote",
+    "pages/mine/mine",
+    "pages/article/articleDetail/articleDetail"
    
   ],
   "window": {
@@ -12,6 +14,18 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/article/article",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

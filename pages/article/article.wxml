@@ -13,11 +13,13 @@
 
   <scroll-view scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
     <block wx:for="{{articleList}}" wx:key="{{index}}">
-    <view  class="articleItem">
-        <view class="scroll-view-item title">  {{item.title}}</view>
-        <view class="scroll-view-item description">  {{util.sub(item.description)}}...</view>
-        <view class="scroll-view-item cover">
-          <image src="{{'http://file.1024sir.com/'+item.cover}}"/>
+    <view class="articleItem">
+        <view bindtap="toArticleDetail" data-item="{{item}}">
+          <view  class="scroll-view-item title">  {{item.title}}</view>
+          <view class="scroll-view-item description">  {{util.sub(item.description)}}...</view>
+          <view class="scroll-view-item cover">
+            <image src="{{'http://file.1024sir.com/'+item.cover}}"/>
+          </view>
         </view>
         <view class="component" >
             <icon bindtap="handleStar"  data-item="{{item}}" class="iconfont icon-shoucang {{item.isStar?'icon-xingxing_selected':''}}"/>

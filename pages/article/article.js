@@ -1,5 +1,6 @@
 // pages/article/article.js
 const wxRequest = require('./../../utils/wxRequest.js');
+const app = getApp();
 Page({
 
   /**
@@ -83,6 +84,14 @@ Page({
       })
     })
 
+  },
+  toArticleDetail:function(e){
+    let item = e.currentTarget.dataset.item;
+    console.log(item)
+    app.articleDetail = item;
+    wx.redirectTo({
+      url: '../article/articleDetail/articleDetail',
+    })
   },
   upper: function (e) {
     console.log(e)

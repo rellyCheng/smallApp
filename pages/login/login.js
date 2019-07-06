@@ -16,8 +16,8 @@ Page({
   onLoad: function (options){
     console.log(wx.getStorageSync("userDetail")=="");
     if(wx.getStorageSync("userDetail")!=''){
-      wx.redirectTo({
-        url: '../article/article'
+      wx.switchTab({
+        url: '/pages/article/article'
       })
     }
   },
@@ -30,8 +30,8 @@ Page({
         console.log("登录成功");
         wx.setStorageSync('userDetail', result.data);
         console.log(wx.getStorageSync('userDetail'));
-        wx.redirectTo({
-          url: '../article/article'
+        wx.switchTab({
+          url: '/pages/article/article'
         })
       }
     })

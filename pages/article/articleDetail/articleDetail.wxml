@@ -1,0 +1,8 @@
+<!--pages/article/articleDetail/articleDetail.wxml-->
+<text>pages/article/articleDetail/articleDetail.wxml</text>
+  <view class="page-section">
+    <view class="page-section-title">传入html字符串</view>
+    <view class="rich-text-wrp">
+      <rich-text nodes="{{html}}" bindtap="tap"></rich-text>
+    </view>
+  </view>
