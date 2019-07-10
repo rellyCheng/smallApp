@@ -1,4 +1,4 @@
-<view wx:if="{{userDetail==''}}" class='container'>
+<view class='container'>
   <view class='header'>
     <text>登录</text>
   </view>
@@ -16,6 +16,7 @@
     </view>
   </form>
 </view>
+
 
 
 

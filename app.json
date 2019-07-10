@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/article/article",
+    "pages/login/login",
+ 
     "pages/index/index",
     "pages/logs/logs",
     "pages/vote/vote",
@@ -13,7 +14,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [

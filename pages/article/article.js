@@ -1,19 +1,30 @@
 // pages/article/article.js
 const wxRequest = require('./../../utils/wxRequest.js');
 const app = getApp();
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articleList: wx.getStorageSync('articleList')
+    articleList: wx.getStorageSync('articleList'),
+    canClick:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getArticle();
+  },
+  onShow: function () {
+    this.data.canClick = true;
+  },
+  onPullDownRefresh: function () {
+    // 显示标题栏进度条效果
+    wx.showNavigationBarLoading();
+    wx.stopPullDownRefresh();
     this.getArticle();
   },
   getArticle:function(){
@@ -25,6 +36,7 @@ Page({
       this.setData({
         articleList:result.data.pageData
       })
+      wx.hideNavigationBarLoading();
     })
   },
   handleStar:function(e){
@@ -86,12 +98,16 @@ Page({
 
   },
   toArticleDetail:function(e){
-    let item = e.currentTarget.dataset.item;
-    console.log(item)
-    app.articleDetail = item;
-    wx.redirectTo({
-      url: '../article/articleDetail/articleDetail',
-    })
+    if (this.data.canClick){
+      this.data.canClick = false;
+      console.log("dianwo")
+      let item = e.currentTarget.dataset.item;
+      console.log(item)
+      app.articleDetail = item;
+      wx.navigateTo({
+        url: '../article/articleDetail/articleDetail',
+      })
+    }
   },
   upper: function (e) {
     console.log(e)

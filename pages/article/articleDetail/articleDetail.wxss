@@ -1,1 +1,5 @@
 /* pages/article/articleDetail/articleDetail.wxss */
+
+.rich-text-wrp{
+  font-size: 12px;
+}
