@@ -1,7 +1,14 @@
 <!--pages/mine/mine.wxml-->
-<!-- canvas.wxml -->
-<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
-<!-- 当使用绝对定位时，文档流后边的canvas的显示层级高于前边的canvas-->
-<!-- <canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas"></canvas> -->
-<!-- 因为canvas-id与前一个canvas重复，该canvas不会显示，并会发送一个错误事件到AppService -->
-<!-- <canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" binderror="canvasIdErrorCallback"></canvas> -->
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
