@@ -2,13 +2,13 @@
   "pages": [
     "pages/article/article",
     "pages/login/login",
- 
     "pages/index/index",
     "pages/logs/logs",
     "pages/vote/vote",
     "pages/mine/mine",
-    "pages/article/articleDetail/articleDetail"
-   
+    "pages/article/articleDetail/articleDetail",
+    "pages/regist/regist"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,14 +18,21 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
+    "selectedColor": "#1296db",
+    "color": "white",
+    "borderStyle": "black", 
     "list": [
       {
         "pagePath": "pages/article/article",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "icon/article.png",
+        "selectedIconPath":"icon/articleSelect1.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "icon/mine.png",
+        "selectedIconPath": "icon/mineSelect.png"
       }
     ]
   },
