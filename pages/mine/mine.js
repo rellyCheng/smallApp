@@ -1,6 +1,7 @@
 // pages/mine/mine.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+const wxRequest = require('./../../utils/wxRequest.js');
 Page({
 
   /**
@@ -54,13 +55,18 @@ Page({
       success(res) {
         console.log(res)
         if (res.code) {
-          //发起网络请求
-          // wx.request({
-          //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxa0b3f7973fef558c&secret=556a36dd25cd4e01a131946e6f5e7fac&js_code=' + res.code+'&grant_type=authorization_code',
-          //   success(res) {
-          //     console.log(res)
-          //   }
-          // })
+          wxRequest.getRequest("/publicApi/wxCode2Session", { js_code: res.code}).then((result) => {
+            console.log(result);
+            if (result.message =="当前用户还未注册"){
+              wx.navigateTo({
+                url: '/pages/regist/regist',
+              })
+            }else{
+              wx.setStorageSync('userDetail', result.data);
+              app.userDetail = result.data;
+            }
+          
+          })
           
         } else {
           console.log('登录失败！' + res.errMsg)

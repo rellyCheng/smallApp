@@ -1,6 +1,7 @@
 var Promise = require('../plugins/es6-promise.js')
 
-let api_IP = "https://api.1024sir.com";
+// let api_IP = "https://api.1024sir.com";
+let api_IP = "http://localhost:8426";
 function wxPromisify(fn) {
   return function (obj = {}) {
     return new Promise((resolve, reject) => {
@@ -27,6 +28,7 @@ function wxPromisify(fn) {
               duration: 1500,
               mask: true
             });
+            resolve(res.data);
           }
         }
       }
