@@ -14,7 +14,12 @@
   </view>
 </view>
 <view class="box2">
-    <view class="sectionList">
+  <view class="sectionList">
+    <view class="sectionItem">
+      <text class="iconfont icon-xingxing_selected"></text>
+      <text >我的</text>
+      <text class="iconfont icon-jiantou" style="float:right"></text>
+    </view>
     <view class="sectionItem">
       <text class="iconfont icon-xingxing_selected"></text>
       <text >收藏</text>

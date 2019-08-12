@@ -38,11 +38,11 @@
 }
 page {
   height:100%;
-  background: 	#F2F2F2
+  background: #F2F2F2
 }
 
 .sectionItem {
-  margin:1px 10px;
+  margin:10rpx 20rpx;
   border-radius: 10rpx;
   background: #fff;
   padding: 10px;
