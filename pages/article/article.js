@@ -28,7 +28,7 @@ Page({
     this.getArticle();
   },
   getArticle:function(){
-    let url = "/api/article/getAllArticleListMore?pageCurrent=1";
+    let url = "/publicApi/article/getAllArticleListMore?pageCurrent=1";
     let data = {};
     wxRequest.postBody(url, data).then((result) => {
       console.log(result.data.pageData);

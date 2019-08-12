@@ -1,8 +1,21 @@
 /* pages/mine/mine.wxss */
+.box1{
+  background-image:url("http://file.1024sir.com/true.jpg"); 
+  border-radius: 20rpx;
+  margin: 10rpx 10rpx;
+  padding: 80rpx 10px;
+}
 
+.getUser{
+  background-color: transparent;
+  font-size: 35rpx;
+  margin-top: 50rpx;
+  color: #aaa;
+  border: 1rpx #fff solid;
+}
 .userinfo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -17,6 +30,37 @@
   color: #aaa;
 }
 
-.usermotto {
-  margin-top: 200px;
+.isBindPhone {
+  margin: 20rpx 0;
+  color: rgb(41, 214, 128);
+  font-size: 30rpx;
+  display: block;
+}
+page {
+  height:100%;
+  background: 	#F2F2F2
+}
+
+.sectionItem {
+  margin:1px 10px;
+  border-radius: 10rpx;
+  background: #fff;
+  padding: 10px;
+  
+}
+
+.iconfont {
+  margin-right: 10rpx;
+}
+
+.icon-aixin{
+   color: rgb(228, 112, 112);
+}
+
+.icon-xingxing_selected{
+  color: rgb(255, 238, 0);
+}
+
+.box2{
+  margin-top: 40rpx;
 }

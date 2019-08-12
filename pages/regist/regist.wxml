@@ -1,18 +1,19 @@
 <!--pages/regist/regist.wxml-->
 <view class="regist-bg">
     <view class="content">
-       
+        <form bindsubmit="formSubmit">
         <view class="form-box">
             <view class="regist-center">
-                <text class="t-name">手机号：</text><input type="text" name="" id="tel_num" class="inp phone-inp" value="" placeholder="请输入您的手机号"/>
+                <text class="t-name">手机号：</text><input type="text" name="telnum" id="tel_num" class="inp phone-inp" value="" placeholder="请输入您的手机号"/>
             </view>
             <view class="regist-center">
-                <text class="t-name">验证码：</text><input type="text" name="" id="code_num" class="inp code-inp" value="" placeholder="请输入您的验证码"/>
+                <text class="t-name">验证码：</text><input type="text" name="codenum" id="code_num" class="inp code-inp" value="" placeholder="请输入您的验证码"/>
                 <view class="get-code">
                     <text class="code-btn">获取验证码</text>
                 </view>
             </view>
-            <view class="regist-button">注册</view>
+            <button type='default' form-type='submit'>注册</button>
         </view>
+        </form>
     </view>
 </view>

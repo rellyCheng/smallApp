@@ -1,14 +1,31 @@
 <!--pages/mine/mine.wxml-->
+<view class="box">
 
-<view class="container">
+<view class="box1">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!hasUserInfo}}" class="getUser" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view >
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <navigator class="isBindPhone" url="/pages/regist/regist" >绑定手机号</navigator>
+      </view>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+<view class="box2">
+    <view class="sectionList">
+    <view class="sectionItem">
+      <text class="iconfont icon-xingxing_selected"></text>
+      <text >收藏</text>
+      <text class="iconfont icon-jiantou" style="float:right"></text>
+    </view>
+    <view class="sectionItem">
+      <text  class="iconfont icon-aixin"></text>
+      <text>喜欢</text> 
+      <text class="iconfont icon-jiantou" style="float:right"></text>
+    </view>
   </view>
 </view>
+</view>
+

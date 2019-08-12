@@ -11,7 +11,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isBindPhone:false
   },
 
   onLoad: function () {
@@ -32,46 +33,58 @@ Page({
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          console.log(res)
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+      // wx.getUserInfo({
+      //   success: res => {
+      //     console.log(res)
+      //     app.globalData.userInfo = res.userInfo
+      //     this.setData({
+      //       userInfo: res.userInfo,
+      //       hasUserInfo: true
+      //     })
+      //   }
+      // })
     }
   },
   getUserInfo: function (e) {
     console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    app.globalData.userInfo = e.detail.userInfo;
+   
     wx.login({
       success(res) {
         console.log(res)
         if (res.code) {
           wxRequest.getRequest("/publicApi/wxCode2Session", { js_code: res.code}).then((result) => {
             console.log(result);
-            if (result.message =="当前用户还未注册"){
-              wx.navigateTo({
-                url: '/pages/regist/regist',
-              })
+            if (result.state == "Fail"){
+              app.globalData.userInfo.openid = result.message;
+              wx.showToast({
+                title: "登录成功",
+                duration: 1500,
+                mask: true
+              });
+              // setTimeout(function(){
+              //   wx.navigateTo({
+              //     url: '/pages/regist/regist',
+              //   })
+              // },1500);
             }else{
               wx.setStorageSync('userDetail', result.data);
               app.userDetail = result.data;
+              app.globalData.userInfo.openid = result.data.openid;
+              this.setData({
+                isBindPhone: true
+              })
             }
-          
           })
-          
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
+    })
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true,
+
     })
   }
 })
