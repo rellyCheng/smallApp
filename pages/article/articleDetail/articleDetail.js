@@ -10,6 +10,7 @@ Page({
    */
   data: {
     html: "",
+    commentFocus:false
   },
 
   tap() {
@@ -23,7 +24,11 @@ Page({
     var that = this;
     this.setData({
       html:app.articleDetail.content,
-      articleDetail:app.articleDetail
+      articleDetail:app.articleDetail,
+      fileUrl: app.globalData.fileUrl
+    })
+    wx.setNavigationBarTitle({
+      title: app.articleDetail.title
     })
   },
 
@@ -57,5 +62,25 @@ Page({
     }
     clearInterval(interval); // 清除setInterval
     time = 0;
-  }
+  },
+
+  handleCommentFocus:function(e){
+    console.log("获取焦点")
+    this.setData({
+      commentFocus:true
+    })
+  },
+
+  handleCommentBlur:function(e){
+    console.log("失去焦点")
+    this.setData({
+      commentFocus: false
+    });
+    wx.getSelectedTextRange({
+      complete: res => {
+        console.log('getSelectedTextRange res', res.start, res.end)
+      }
+    })
+  },
+
 })

@@ -36,6 +36,7 @@ App({
   globalData: {
     userInfo: null,
     articleDetail:null,
-    userDetail:null
+    userDetail:null,
+    fileUrl:'http://file.1024sir.com/'
   }
 })

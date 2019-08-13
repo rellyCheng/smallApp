@@ -16,7 +16,7 @@
 <view class="box2">
   <view class="sectionList">
     <view class="sectionItem">
-      <text class="iconfont icon-xingxing_selected"></text>
+      <text class="iconfont icon-wenzhang"></text>
       <text >我的</text>
       <text class="iconfont icon-jiantou" style="float:right"></text>
     </view>

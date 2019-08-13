@@ -1,7 +1,85 @@
 <!--pages/article/articleDetail/articleDetail.wxml-->
-  <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="page-section">
-    <view class="page-section-title">传入html字符串</view>
-    <view class="rich-text-wrp">
-      <rich-text nodes="{{html}}" bindtap="tap"></rich-text>
+<view class="title-box">
+  <image src="{{fileUrl+articleDetail.avatar}}"/>
+  <text class="name">{{articleDetail.ownerName}}</text>
+  <text class="iconfont icon-add-fill fork">关注</text>
+</view>
+
+<view bindtouchstart="touchStart" bindtouchend="touchEnd" class="page-section">
+  <view class="page-section-title">传入html字符串</view>
+  <view class="rich-text-wrp">
+    <rich-text nodes="{{html}}" bindtap="tap"></rich-text>
+  </view>
+</view>
+
+<view wx:if="{{!commentFocus}}" class="page-foot">
+  <!-- <input bindfocus="handleCommentFocus"  cursor-spacing="10" class="comment-input" placeholder-class="comment-input-placeholder" placeholder="网络一线牵，珍惜这段缘" /> -->
+  <view bindtap="handleCommentFocus" class="comment-input" >
+    网络一线牵，珍惜这段缘
+  </view>
+  <view class="like">
+    <text class="iconfont icon-xihuan"></text>
+    <text>{{articleDetail.likeNum}}</text>
+  </view> 
+  <view class="to-comment">
+    <text class="iconfont icon-pinglun"></text>
+    <text>{{articleDetail.messageNum}}</text>
+  </view>
+</view>
+
+  <view wx:if="{{commentFocus}}" class="page-comment">
+    <view class="image">
+      <text class="iconfont icon-tupian"></text>
+    </view> 
+    <view class="emoji">
+      <text class="iconfont icon-smile"></text>
+    </view>
+    <view class="commenting">
+      <input cursor-spacing="10" bindblur="handleCommentBlur" placeholder="添加评论..." focus="{{commentFocus}}"/>
+    </view>
+    <view class="send">
+      <text class="iconfont icon-zhifeiji"></text>
     </view>
   </view>
+
+  <view class="comment-list">
+    <view class="comment-item">
+      <!-- <view class="comment-user">
+        <image src="{{fileUrl}}1550824629901-605848829" />
+        <view class="comment-user-right">
+          <view class="comment-user-right-up">
+            <view class="name">
+              <text >我的名字</text>
+            </view>
+            <view class="comment-like">
+              <text >点赞</text>
+            </view>
+            <view  class="comment-reply">
+              <text>回复</text>
+            </view>
+          </view>
+          <text class="description">我的简介</text>
+        </view>
+      </view>
+      <text class="comment-content">我是评论</text>-->
+        <!-- <view class="item1">1</view>
+        <view class="item2">2</view> -->
+        <view class="item3">
+          <image src="{{fileUrl}}1550824629901-605848829" />
+        </view>
+        <view class="item5">
+              <text class="name">我的名字</text>
+              <view>
+                <text class="description">我的简介</text>
+              </view>
+        </view>
+        <view class="item6">
+         <text >点赞</text>
+         <text>回复</text>
+        </view>
+        <view class="item4">
+          <text class="comment-content">我是评论</text>
+        </view>
+    </view> 
+  </view>
+
