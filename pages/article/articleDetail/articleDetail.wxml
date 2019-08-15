@@ -1,4 +1,5 @@
 <!--pages/article/articleDetail/articleDetail.wxml-->
+<scroll-view class='rightScroll' style="height:{{scrollHeight}}px;" scroll-y scroll-into-view="{{toView}}" scroll-with-animation="true">
 <view class="title-box">
   <image src="{{fileUrl+articleDetail.avatar}}"/>
   <text class="name">{{articleDetail.ownerName}}</text>
@@ -13,16 +14,15 @@
 </view>
 
 <view wx:if="{{!commentFocus}}" class="page-foot">
-  <!-- <input bindfocus="handleCommentFocus"  cursor-spacing="10" class="comment-input" placeholder-class="comment-input-placeholder" placeholder="网络一线牵，珍惜这段缘" /> -->
-  <view bindtap="handleCommentFocus" class="comment-input" >
+  <view bindtap="handleCommentFocus" class="comment-input">
     网络一线牵，珍惜这段缘
   </view>
   <view class="like">
     <text class="iconfont icon-xihuan"></text>
     <text>{{articleDetail.likeNum}}</text>
   </view> 
-  <view class="to-comment">
-    <text class="iconfont icon-pinglun"></text>
+  <view class="to-comment" bindtap="toComment">
+    <text class="iconfont icon-pinglun" ></text>
     <text>{{articleDetail.messageNum}}</text>
   </view>
 </view>
@@ -42,28 +42,8 @@
     </view>
   </view>
 
-  <view class="comment-list">
+  <view id="comment" class="comment-list">
     <view class="comment-item">
-      <!-- <view class="comment-user">
-        <image src="{{fileUrl}}1550824629901-605848829" />
-        <view class="comment-user-right">
-          <view class="comment-user-right-up">
-            <view class="name">
-              <text >我的名字</text>
-            </view>
-            <view class="comment-like">
-              <text >点赞</text>
-            </view>
-            <view  class="comment-reply">
-              <text>回复</text>
-            </view>
-          </view>
-          <text class="description">我的简介</text>
-        </view>
-      </view>
-      <text class="comment-content">我是评论</text>-->
-        <!-- <view class="item1">1</view>
-        <view class="item2">2</view> -->
         <view class="item3">
           <image src="{{fileUrl}}1550824629901-605848829" />
         </view>
@@ -74,12 +54,35 @@
               </view>
         </view>
         <view class="item6">
-         <text >点赞</text>
-         <text>回复</text>
+         <text class="iconfont icon-dianzan" ></text>
+         <text class="iconfont icon-pinglun"></text>
         </view>
         <view class="item4">
-          <text class="comment-content">我是评论</text>
+          <text class="comment-content">我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论</text>
+        </view>
+        <view class="item7">
+          <text>回复name：</text>
+          <text class="comment-content">我是回复我是回复我是回复我是回复我是回复</text>
+        </view>
+    </view> 
+     <view class="comment-item">
+        <view class="item3">
+          <image src="{{fileUrl}}1550824629901-605848829" />
+        </view>
+        <view class="item5">
+              <text class="name">我的名字</text>
+              <view>
+                <text class="description">我的简介</text>
+              </view>
+        </view>
+        <view class="item6">
+         <text class="iconfont icon-dianzan" ></text>
+         <text class="iconfont icon-pinglun"></text>
+        </view>
+        <view class="item4">
+          <text class="comment-content">我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论我是评论</text>
         </view>
     </view> 
   </view>
+</scroll-view>
 

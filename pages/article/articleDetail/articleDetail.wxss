@@ -113,74 +113,51 @@ page{
   /* display: flex;
   flex-direction: column; */
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 15% 60% 25%;
+  /* grid-template-rows: 50px 80px 200px; */
 }
-
 
 .item3 {
+   
     grid-row-start: 1;
     grid-row-end: 3;
-    background-color: red;
+    /* background-color: red; */
+}
+.item3 image{
+   border-radius: 50%;
 }
 .item4 {
+    padding: 10px 0;
     grid-column-start: 2;
     grid-column-end: 4;
-    background-color: green;
+    /* background-color: green; */
 }
-.item5{
-  background-color: gold;
+.item4 .comment-content{
+  font-size: 28rpx;
+}
+.item7{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    font-size: 28rpx;
+    background-color: rgb(226, 223, 223);
+    padding: 20rpx 20rpx;
+}
+.item5 .name{
+  font-size: 30rpx
+}
+.item5 .description{
+  font-size: 28rpx;
+  color: #aaa
 }
 .item6{
-  background-color: darkblue;
+  justify-self: end;
+  /* background-color: darkblue; */
 }
-
-
-
-/* .comment-item .comment-user{
-  display: grid;
+.item6 .icon-dianzan{
+  margin-right: 50rpx
 }
-
-.comment-item .comment-content{
-}
-
-.comment-user-right{
-   display: flex;
-  flex-direction: column; 
-} */
-
 
 .comment-item image{
   height: 100rpx;
   width: 100rpx;
 }
-
-/* .comment-user-right-up{
-  display: flex;
-  justify-content: space-between;
-} */
-
-
-/* .comment-user-right-up .name{
-  font-size: 35rpx;
-  color: blue;
-  flex-grow:3;
-}
-
-.comment-user-right-up .comment-reply{
-   flex-grow:1;
-}
-
-.comment-user-right-up .comment-like{
-   flex-grow:1;
-} */
-
-
-/* .comment-item .description{
-  font-size: 25rpx;
-  color: #aaa
-} */
-
-
-
-

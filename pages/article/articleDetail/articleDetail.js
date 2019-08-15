@@ -21,8 +21,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+    let scrollHeight = wx.getSystemInfoSync().windowHeight;
     this.setData({
+      scrollHeight: scrollHeight,
       html:app.articleDetail.content,
       articleDetail:app.articleDetail,
       fileUrl: app.globalData.fileUrl
@@ -82,5 +83,12 @@ Page({
       }
     })
   },
+
+  toComment:function(){
+    console.log(123)
+    this.setData({
+      toView:'comment'
+    })
+  }
 
 })
