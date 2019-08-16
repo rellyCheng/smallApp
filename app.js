@@ -32,6 +32,9 @@ App({
         }
       }
     })
+
+    let scrollHeight = wx.getSystemInfoSync().windowHeight;
+    this.globalData.scrollHeight = scrollHeight;
   },
   globalData: {
     userInfo: null,

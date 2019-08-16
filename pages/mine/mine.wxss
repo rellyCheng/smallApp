@@ -45,8 +45,11 @@ page {
   margin:10rpx 20rpx;
   border-radius: 10rpx;
   background: #fff;
-  padding: 10px;
-  
+  padding: 20rpx 20rpx;
+}
+
+.sectionItem switch{
+  float: right;
 }
 
 .iconfont {
@@ -63,4 +66,20 @@ page {
 
 .box2{
   margin-top: 40rpx;
+}
+
+/* switch */
+.wx-switch-input{
+    width: 82rpx!important;
+    height: 40rpx!important;
+}
+/*关闭状态*/
+.wx-switch-input::before{
+    width: 80rpx!important;
+    height: 36rpx!important;
+}
+/*开启状态*/
+.wx-switch-input::after{
+    width: 38rpx!important;
+    height: 36rpx!important;
 }

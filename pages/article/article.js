@@ -9,7 +9,9 @@ Page({
    */
   data: {
     articleList: wx.getStorageSync('articleList'),
-    canClick:true
+    canClick:true,
+    theme: wx.getStorageSync('theme'),
+    scrollHeight: app.globalData.scrollHeight,
   },
 
   /**
@@ -17,9 +19,13 @@ Page({
    */
   onLoad: function (options) {
     this.getArticle();
+    
   },
   onShow: function () {
-    this.data.canClick = true;
+    this.setData({
+      theme: wx.getStorageSync('theme'),
+      canClick : true
+    })
   },
   onPullDownRefresh: function () {
     // 显示标题栏进度条效果

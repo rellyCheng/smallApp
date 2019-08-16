@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<view class="box">
+<view class="box {{theme}}"  style="height:{{scrollHeight}}px;">
 
 <view class="box1">
   <view class="userinfo">
@@ -31,9 +31,9 @@
       <text class="iconfont icon-jiantou" style="float:right"></text>
     </view>
     <view class="sectionItem">
-      <text  class="iconfont icon-aixin"></text>
+      <text  class="iconfont icon-yejianmoshi2"></text>
       <text>夜间模式</text> 
-      <text class="iconfont icon-jiantou" style="float:right"></text>
+      <switch class="wx-switch-input" checked="{{theme=='dark'?true:false}}" bindchange="switchChange"/>
     </view>
   </view>
 </view>

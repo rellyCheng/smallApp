@@ -1,6 +1,6 @@
 <!--pages/article/article.wxml-->
 <wxs src="./article.wxs" module="util" />
-<view class="section" >
+<view class="section {{theme}}" >
 <view class='page_row' >  
       <view class="search">  
         <view class="df search_arr">  
@@ -11,7 +11,7 @@
       <view bindtap="handleSearch" class='sousuo'>搜索</view>  
 </view>
 
-  <scroll-view scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+  <scroll-view class="{{theme}}" style="height:{{scrollHeight}}px;" scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
     <block wx:for="{{articleList}}" wx:key="{{index}}">
     <view class="articleItem">
         <view bindtap="toArticleDetail" data-item="{{item}}">

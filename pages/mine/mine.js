@@ -10,7 +10,9 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isBindPhone:false
+    isBindPhone:false,
+    theme: wx.getStorageSync('theme'),
+    scrollHeight: app.globalData.scrollHeight,
   },
 
   onLoad: function () {
@@ -70,5 +72,20 @@ Page({
       hasUserInfo: true,
 
     })
+  },
+  switchChange:function(e){
+    console.log(e)
+    let isNight = e.detail.value;
+    wx.setStorageSync('theme', isNight?'dark':'normal');
+    if (isNight){
+      this.setData({
+        theme: "dark"
+      })
+    }else{
+      this.setData({
+        theme: "normal"
+      })
+    }
+   
   }
 })

@@ -19,3 +19,16 @@
   -moz-osx-font-smoothing:grayscale;
 
 }
+
+.dark{
+  background-color: #292929
+}
+
+.dark view{
+  background-color: #292929;
+  background-image: '';
+}
+.dark .title{
+  	color: 	#4A4A4A
+}
+

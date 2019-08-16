@@ -21,9 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let scrollHeight = wx.getSystemInfoSync().windowHeight;
     this.setData({
-      scrollHeight: scrollHeight,
+      scrollHeight: app.globalData.scrollHeight,
       html:app.articleDetail.content,
       articleDetail:app.articleDetail,
       fileUrl: app.globalData.fileUrl

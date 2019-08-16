@@ -8,7 +8,7 @@
 .title{
   font-size: 18px;
   font-weight: blod;
-  /* background-color: green; */
+  color: 	#2F4F4F
 }
 .description{
   font-size: 13px;
@@ -88,6 +88,7 @@
   text-align: center;  
   border: 1px solid #d0d0d0;  
   border-radius: 10rpx;  
+  color: #aaa
 }  
 .page_row{  
   display: flex;  
