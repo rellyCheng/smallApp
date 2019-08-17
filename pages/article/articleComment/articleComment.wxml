@@ -1,0 +1,47 @@
+<scroll-view>
+  <view id="comment">
+    <view class="comment-item" bindtap="toArticleComment" >
+        <view class="item3">
+          <image src="{{fileUrl}}{{articleMsgItem.avatar}}" />
+        </view>
+        <view class="item5">
+              <text class="name">{{articleMsgItem.name}}</text>
+              <view>
+                <text class="description">我的简介</text>
+              </view>
+        </view>
+        <view class="item6">
+        
+        </view>
+        <view class="item4">
+          <text class="comment-content">{{articleMsgItem.commentContent}}</text>
+        </view>
+    </view> 
+  </view>
+
+  <view id="comment" class="comment-list" >
+    <view class="comment-count">
+    <text>评论 {{articleMsgItem.children.length}}</text>
+    </view>
+    <block wx:for="{{articleMsgItem.children}}" wx:key="{{id}}">
+        <view class="comment-item" bindtap="toArticleComment" >
+          <view class="item3">
+            <image src="{{fileUrl}}{{item.avatar}}" />
+          </view>
+          <view class="item5">
+                <text class="name">{{item.name}}</text>
+                <view>
+                  <text class="description">我的简介</text>
+                </view>
+          </view>
+          <view class="item6">
+          <text class="iconfont icon-dianzan" ></text>
+          <text class="iconfont icon-pinglun"></text>
+          </view>
+          <view class="item4">
+            <text class="comment-content">{{item.commentContent}}</text>
+          </view>
+        </view> 
+      </block>
+  </view>
+</scroll-view>

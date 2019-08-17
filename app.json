@@ -7,8 +7,8 @@
     "pages/vote/vote",
     "pages/mine/mine",
     "pages/article/articleDetail/articleDetail",
-    "pages/regist/regist"
-    
+    "pages/regist/regist",
+    "pages/article/articleComment/articleComment"
   ],
   "window": {
     "backgroundTextStyle": "light",

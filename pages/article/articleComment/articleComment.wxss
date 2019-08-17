@@ -1,0 +1,72 @@
+/* pages/article/articleComment.wxss */
+page{
+  background-color: rgba(233, 232, 232, 0.342);
+}
+.comment-list{
+  margin-top: 50rpx;
+}
+
+.comment-item{
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 30rpx 20rpx;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: 15% 60% 25%;
+  /* grid-template-rows: 50px 80px 200px; */
+}
+
+.item3 {
+   
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* background-color: red; */
+}
+.item3 image{
+   border-radius: 50%;
+}
+.item4 {
+    padding: 10px 0;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    /* background-color: green; */
+}
+.item4 .comment-content{
+  font-size: 28rpx;
+}
+.item7{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    font-size: 28rpx;
+    background-color: rgb(226, 223, 223);
+    padding: 20rpx 20rpx;
+    border: 2rpx #fff solid;
+}
+.item5 .name{
+  font-size: 30rpx
+}
+.item5 .description{
+  font-size: 28rpx;
+  color: #aaa
+}
+.item6{
+  justify-self: end;
+  /* background-color: darkblue; */
+}
+.item6 .icon-dianzan{
+  margin-right: 50rpx
+}
+
+.comment-item image{
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.comment-count{
+  font-size: 30rpx;
+  color: #aaa;
+  border: 2rpx #fff solid;
+  background-color: #fff;
+  padding: 20rpx 20rpx;
+}

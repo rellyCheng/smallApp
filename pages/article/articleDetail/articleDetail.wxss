@@ -103,7 +103,7 @@ page{
 }
 
 .comment-list{
-  margin-bottom: 80rpx;
+  /* margin-bottom: 80rpx; */
 }
 
 .comment-item{
@@ -141,6 +141,7 @@ page{
     font-size: 28rpx;
     background-color: rgb(226, 223, 223);
     padding: 20rpx 20rpx;
+    border: 2rpx #fff solid;
 }
 .item5 .name{
   font-size: 30rpx

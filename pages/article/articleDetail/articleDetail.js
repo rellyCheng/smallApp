@@ -1,8 +1,10 @@
 // pages/article/articleDetail/articleDetail.js
 const app = getApp();
+const wxRequest = require('./../../../utils/wxRequest.js');
 var time = 0;
 var touchDot = 0;//触摸时的原点
 var interval = "";
+let pageCurrent = 1;
 Page({
 
   /**
@@ -10,7 +12,8 @@ Page({
    */
   data: {
     html: "",
-    commentFocus:false
+    commentFocus:false,
+    articleMsg:[]
   },
 
   tap() {
@@ -30,7 +33,24 @@ Page({
     wx.setNavigationBarTitle({
       title: app.articleDetail.title
     })
+    this.getArticleMessageDetail();
   },
+
+  getArticleMessageDetail:function(){
+    let url = "/publicApi/article/getArticleMessageDetail";
+    let data = {
+      articleId: app.articleDetail.articleId,
+      pageSize:10,
+      pageCurrent:pageCurrent
+    }
+    wxRequest.getRequest(url, data).then((res)=>{
+      this.setData({
+        articleMsg: [...this.data.articleMsg, ...res.data.pageData]
+      })
+    })
+  },
+
+
 
   onShow: function () {
     clearInterval(interval); // 清除setInterval
@@ -88,6 +108,12 @@ Page({
     this.setData({
       toView:'comment'
     })
-  }
+  },
+  toCommentDetail: function() {
+    // wx.setStorageSync("commentItem",);
+    wx.navigateTo({
+      url: '/pages/article/articleComment/articleComment',
+    })
+  },
 
 })
